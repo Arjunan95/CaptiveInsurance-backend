@@ -1,8 +1,8 @@
 'use strict';
-var bcSdk = require('../fabcar/query');
+var bcSdk = require('../captivefabric/query');
 
 
-exports.UnderwriterNotification =   (startKey, endKey) => {
+exports.UnderwriterNotification = (startKey, endKey) => {
 
     return new Promise((resolve, reject) => {
         console.log("startKey---", startKey);

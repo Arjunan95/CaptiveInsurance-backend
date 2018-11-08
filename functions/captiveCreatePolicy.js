@@ -1,7 +1,7 @@
 'use strict';
 
 const user = require('../models/createpolicymodels');
-var bcSdk = require('../fabcar/invoke')
+var bcSdk = require('../captivefabric/invoke')
 
 // const user = require('../models/fetchdata');
 
@@ -31,8 +31,8 @@ exports.captiveCreatePolicy = (policyid, policyName, policycatagory, rules, poli
             console.log(response)
             resolve({
                 status: 201,
-                 message: 'Contract details saved',
-                 result:policyid
+                message: 'Contract details saved',
+                result: policyid
             })
         })
 

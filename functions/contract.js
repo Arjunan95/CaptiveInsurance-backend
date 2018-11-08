@@ -1,8 +1,8 @@
 'use strict';
 const Pateint = require('../models/patientData');
-var bcSdk = require('../fabcar/invoke')
+var bcSdk = require('../captivefabric/invoke')
 
-exports.createContract = (s, submitID, policyid,count3) => {
+exports.createContract = (s, submitID, policyid, count3) => {
     // (NAME, AGE, HospitalName, DOA, REF_DOC, IPD_No, MLC, SEX, DOD, DAIGONIS, Cheif_Complaints_On_Admission, Past_History_with_Allergy, Personal_History, Family_History, Menstrual_History, Obstretric_History, Genral_Examination, Systematic_Examination, Investigations, BaBys_Details, Course_in_Hospital_And_condition, Treatment_Given, Treatment_Adviced, Follow_Up_Visit, Procedure_done, submitID, status, claimAmount, policyId) => {
 
     return new Promise((resolve, reject) => {
@@ -11,7 +11,7 @@ exports.createContract = (s, submitID, policyid,count3) => {
             "patientData": s,
             "submitID": submitID,
             "policyid": policyid,
-            "count3":count3,
+            "count3": count3,
 
             created_at: new Date()
         });
@@ -28,7 +28,7 @@ exports.createContract = (s, submitID, policyid,count3) => {
         data.save()
 
         bcSdk.savetransaction(ldata)
-            .then(function(docs) {
+            .then(function (docs) {
                 if (docs == undefined) {
                     console.log(docs.response)
                     return resolve({

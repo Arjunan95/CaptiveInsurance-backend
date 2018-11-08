@@ -2,7 +2,7 @@
 
 // const user = require('../models/notify');
 //const user = require('../models/notifySelectPolicy');
-var bcSdk = require('../fabcar/invoke');
+var bcSdk = require('../captivefabric/invoke');
 // const user = require('../models/fetchdata');
 
 exports.notifypost = (policyid, policyName, policycatagory, policypercentage, rules, inputradio, registername, status, count) => {

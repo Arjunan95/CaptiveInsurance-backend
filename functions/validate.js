@@ -1,24 +1,24 @@
-var bcSdk = require('../fabcar/query');
+var bcSdk = require('../captivefabric/query');
 
 
 exports.validate = (userId) => {
     return new Promise((resolve, reject) => {
 
-            bcSdk.getHistory({
-                    userId: userId
-                })
+        bcSdk.getHistory({
+            userId: userId
+        })
 
 
-                .then((docs) => {
-                    console.log("out from chain", docs)
-                
-                    if(docs[0]==undefined){
-                        return resolve({
-                            status:400,
-                            "message":"Record does not exits "
+            .then((docs) => {
+                console.log("out from chain", docs)
 
-                        });
-                     } else {
+                if (docs[0] == undefined) {
+                    return resolve({
+                        status: 400,
+                        "message": "Record does not exits "
+
+                    });
+                } else {
 
                     return resolve({
                         status: 201,
@@ -26,9 +26,9 @@ exports.validate = (userId) => {
 
                     })
                 }
-                   
-                })
-        })
+
+            })
+    })
 
         .catch(err => {
 

@@ -4,15 +4,15 @@
 //     return new Promise(async (resolve, reject) => {
 
 //         Tpa.find({
-            
-            
+
+
 //         }).then(result => {
-            
+
 //             console.log(result)
 //             resolve({
 //                 "status": 200,
 //                 "patients": result
-                
+
 //             })
 //              })
 
@@ -20,7 +20,7 @@
 // }
 
 'use strict';
-var bcSdk = require('../fabcar/query');
+var bcSdk = require('../captivefabric/query');
 
 
 exports.notification = (startKey, endKey) => {

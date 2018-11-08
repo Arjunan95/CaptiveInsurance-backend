@@ -1,4 +1,4 @@
-var bcSdk = require('../fabcar/query');
+var bcSdk = require('../captivefabric/query');
 const user = require('../models/policy1');
 //const user = require('../models/fetchdata');
 
@@ -6,29 +6,29 @@ const user = require('../models/policy1');
 exports.getpolicy1 = (userId) => {
     return new Promise((resolve, reject) => {
 
-            bcSdk.getpolicy1({
-                    userId: userId
+        bcSdk.getpolicy1({
+            userId: userId
 
 
-                })
-
-                // request.find({
-                //         "rapidID": rapidID
-                //     })
-
-                .then((docs) => {
-                    var len = docs.length;
-                    console.log(len)
-
-                    console.log("docs....123>>>", docs)
-
-                    return resolve({
-                        status: 201,
-                        docs: docs,
-
-                    })
-                })
         })
+
+            // request.find({
+            //         "rapidID": rapidID
+            //     })
+
+            .then((docs) => {
+                var len = docs.length;
+                console.log(len)
+
+                console.log("docs....123>>>", docs)
+
+                return resolve({
+                    status: 201,
+                    docs: docs,
+
+                })
+            })
+    })
 
         .catch(err => {
 

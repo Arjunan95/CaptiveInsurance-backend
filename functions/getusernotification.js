@@ -24,21 +24,21 @@
 //     })
 // }
 'use strict';
-var bcSdk = require('../fabcar/query');
+var bcSdk = require('../captivefabric/query');
 
 
-exports.getusernotification = (startKey, endKey,decreasecount) => {
+exports.getusernotification = (startKey, endKey, decreasecount) => {
 
     return new Promise((resolve, reject) => {
         console.log("startKey---", startKey);
         console.log("endKey---", endKey);
-        console.log("entering into readAllrequest function.......!",decreasecount)
+        console.log("entering into readAllrequest function.......!", decreasecount)
 
         bcSdk
             .getpatientdetails({
                 startKey: startKey,
                 endKey: endKey,
-                decreasecount:decreasecount
+                decreasecount: decreasecount
             })
 
             .then((requestarray) => {

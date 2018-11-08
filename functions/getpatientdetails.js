@@ -1,5 +1,5 @@
 'use strict';
-var bcSdk = require('../fabcar/query');
+var bcSdk = require('../captivefabric/query');
 
 
 exports.getpatientdetails = (startKey, endKey) => {

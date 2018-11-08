@@ -1,6 +1,6 @@
 'use strict';
 const policy1 = require('../models/policy1');
-var bcSdk = require('../fabcar/invoke')
+var bcSdk = require('../captivefabric/invoke')
 
 exports.policy1 = (policyID, policys) => {
 
@@ -18,7 +18,7 @@ exports.policy1 = (policyID, policys) => {
             console.log(response)
             resolve({
                 status: 201,
-                 message: 'Contract details saved'
+                message: 'Contract details saved'
             })
         }).catch(err => {
             reject({

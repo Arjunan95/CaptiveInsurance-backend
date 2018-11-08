@@ -1,7 +1,7 @@
 'use strict';
 var Patient = require('../models/Tpa');
 var hold = require('../models/hold')
-var bcSdk = require('../fabcar/invoke')
+var bcSdk = require('../captivefabric/invoke')
 
 exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
     // console.log("claimamount", claimamount)
@@ -9,7 +9,7 @@ exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
 
     return new Promise((resolve, reject) => {
 
-        if ( AmountPayerWouldPay < claimAmount) {
+        if (AmountPayerWouldPay < claimAmount) {
 
             var data = new hold({
 
@@ -25,7 +25,7 @@ exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
                 created_at: new Date()
             });
             console.log("discharge summary====================>", data)
-          
+
             var ldata = {
                 updatedetails: {
 
@@ -40,7 +40,7 @@ exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
                 .then(
                     bcSdk.updatetransaction(ldata))
 
-                .then(function(docs) {
+                .then(function (docs) {
                     if (docs.response == "record already exist!") {
                         console.log(docs.response)
                         resolve({
@@ -81,13 +81,13 @@ exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
                 "status": "Auto approved",
                 "message": "approved",
                 "Expenses": claimAmount,
-                "AmountPayerWouldPay":claimAmount,
+                "AmountPayerWouldPay": claimAmount,
                 "AmountuserHavetopay": 0,
 
                 created_at: new Date()
             });
 
-           
+
             var ldata = {
                 updatedetails: {
 
@@ -97,10 +97,10 @@ exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
                 }
             }
             data.save()
-            .then(
-                bcSdk.updatetransaction(ldata))
+                .then(
+                    bcSdk.updatetransaction(ldata))
 
-                .then(function(docs) {
+                .then(function (docs) {
                     if (docs.response == "record already exist!") {
                         console.log(docs.response)
                         resolve({
@@ -126,6 +126,6 @@ exports.autotpa = (s, AmountPayerWouldPay, claimAmount, submitID) => {
 
 
         }
-    
+
     })
 }
